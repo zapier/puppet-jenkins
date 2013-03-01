@@ -1,4 +1,4 @@
-class jenkins::repo::debian {
+class jenkins::repo::debian($lts) {
     if $lts == 0 {
 	    apt::source { 'jenkins':
 	      location    => 'http://pkg.jenkins-ci.org/debian',
