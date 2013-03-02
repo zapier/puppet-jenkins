@@ -8,21 +8,18 @@ class jenkins::repo ( $lts = 0, $repo = 1 )
 	  case $::osfamily {
 	    'RedHat': {
 	      class { 'jenkins::repo::el':
-			    lts  => $lts,
 	        require => Anchor['jenkins::repo::alpha'],
 	        before  => Anchor['jenkins::repo::omega'],
 	      }
 	    }
 	    'Linux': {
 	      class { 'jenkins::repo::el':
-			lts  => $lts,
 	        require => Anchor['jenkins::repo::alpha'],
 	        before  => Anchor['jenkins::repo::omega'],
 	      }
 	    }
 	    'Debian': {
 	      class { 'jenkins::repo::debian':
-			    lts  => $lts,
 		      require => Anchor['jenkins::repo::alpha'],
 	        before  => Anchor['jenkins::repo::omega'],
 	      }
